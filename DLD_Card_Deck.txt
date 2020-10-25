@@ -1,0 +1,28 @@
+// Design Document
+// Components of the Module
+// Design Requiremnts for the details 
+
+
+// Main Components
+1- Card Deck
+    Contains all cards avaiable which are not drawn
+    Can Draw Cards in any numbewr available
+    Can Input cards in any in any manner top ,botton, mid
+    Acts as a black box 
+
+2- Rules Engine
+    Rules of the board
+    How Cards will be distributed to players 
+    Validate moves of the player 
+    show moves avaliable to player 
+    can be referenced by each player for the given output of possible 
+    Points for allocation for each player 
+    Heirarchy of cards
+
+3- Table
+    Represents the n players
+    their total score
+    what is visible and not visible from each players perspective
+    Future Iterations
+        Show possible moves and kindof outcomes for players 
+    Does automatic sorting of cards too for leader-board
