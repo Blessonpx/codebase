@@ -7,11 +7,12 @@ class Node {
     Node* prev; 
 };
 void push(Node** head_ref,int new_value){
-// Declare a node for the New Data 
+// Declare a node for the New Data
+// Declaring a Pointer because Pointer can be passed and saved where variable will end once Function Call ends
     Node* new_node;
 // Allocate Value to Node 
     new_node->data=new_value;
-// Allocate New Node as Head 
+// Allocate New Node Prev and Next
     new_node->prev=NULL;
     new_node->next=(*head_ref);
 // If Head_ref is not null then Prev of Head_ref Becomes the New Node
