@@ -40,6 +40,21 @@ void InsertAfter(Node* prev_node,int new_data){
         new_node->next->prev = new_node;    
 };
 
+void append(Node** head_ref,int new_data){
+// Allocate New Node for Data and Last Pointer 
+    Node* new_node;
+    Node* last=*head_ref;
+// Allocate New Data to Node 
+    new_node->data=new_data ;
+// Get the Last Pointer for The List   
+    while(last->next!=NULL){
+        last=last->next;
+    }     
+// Allocate Last to New Node
+    last->next=new_node;
+    new_node->prev=last;
+};
+
 int main(){
 // Create Linked List 
 // Enter Number of Elements
