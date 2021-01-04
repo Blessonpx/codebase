@@ -6,73 +6,82 @@ class Node {
     Node* next;
     Node* prev; 
 };
-void push(Node** head_ref,int new_value){
-// Declare a node for the New Data
-// Declaring a Pointer because Pointer can be passed and saved where variable will end once Function Call ends
-    Node* new_node;
-// Allocate Value to Node 
+Node *push(Node** head_ref,int new_value){
+    Node* new_node= new Node();
     new_node->data=new_value;
-// Allocate New Node Prev and Next
-    new_node->prev=NULL;
     new_node->next=(*head_ref);
-// If Head_ref is not null then Prev of Head_ref Becomes the New Node
-    if (*head_ref!=NULL){
+    new_node->prev=NULL;
+    
+    if ((*head_ref)!=NULL){
         (*head_ref)->prev=new_node;}
-// Make the Head_Ref point to the New Node
     (*head_ref)=new_node;
-
-};
-
+    return *head_ref;
+}
 void InsertAfter(Node* prev_node,int new_data){
-// Check that prev_node is null
     if (prev_node==NULL)
         printf(" This node cannot be inserted before a Null Pointer");
-// Allocate New Node
-    Node* new_node ;
-// Put Data in New Node
+    Node* new_node= new Node() ;
     new_node->data=new_data;
-// Allocate New Node prev and next
     new_node->next=prev_node->next;
     prev_node->next=new_node;
     new_node->prev=prev_node;
-// Change previous of new_node's next node 
     if (new_node->next != NULL)
         new_node->next->prev = new_node;    
-};
-
+}
 void append(Node** head_ref,int new_data){
-// Allocate New Node for Data and Last Pointer 
-    Node* new_node;
+    Node* new_node= new Node();
     Node* last=*head_ref;
-// Allocate New Data to Node 
     new_node->data=new_data ;
-// Get the Last Pointer for The List   
+    new_node->next=NULL ;
     while(last->next!=NULL){
         last=last->next;
     }     
-// Allocate Last to New Node
     last->next=new_node;
     new_node->prev=last;
-};
-
+}
+void insertBefore(Node** head_ref,Node* next_node, int new_data  ){
+    if (next_node==NULL){
+        printf("Cannot Insert This Node");
+        return;}
+    Node* new_node=new Node();
+    new_node->data=new_data ;
+    new_node->prev=next_node->prev;
+    next_node->prev=new_node;
+    new_node->next=next_node;
+    if (new_node->prev!=NULL){
+        new_node->prev->next=new_node;
+    }
+    else (*head_ref)=new_node;
+}
+void printList(Node* node ){
+    Node* last=new Node();
+    last=node;
+    while (last!=NULL){
+    cout<<last->data;
+    last=last->prev;
+    return ;
+    }
+}
 int main(){
-// Create Linked List 
-// Enter Number of Elements
 int size_0=6 ;
-//    cout<<"Input Initial Size of Linked List:  ";
-//    cin>>size_0;
     int a[size_0];
-//    cout<<"Input Numbers ";
     int i=6;
     for(int i=0;i<size_0;i++){
         a[i]=i;
     }
-// Push Array elements into Linked List with Last one as Head
-    Node* head=NULL;
+    Node* head=new Node();
+
+//    push(&head,1);
+//    push(&head,2);
+//    push(&head,3);
+
+    head=NULL;
+//    cout<<'\n'<<&head;
     for(int j=0;j<size_0;j++){
-        push(&head,a[j]);
+        head=push(&head,a[j]);
+        cout<<'\n'<<head->data;
+        
     }
-
-
+//    printList(head);
     return 0;
 }
