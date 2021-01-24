@@ -1,4 +1,5 @@
 ### Setup New Environment 
+### In order to refer the General Heirarchy files https://www.pathname.com/fhs/pub/fhs-2.3.html
 python -m venv myenv
 ### Install Version
 pip install django==2.0.7
