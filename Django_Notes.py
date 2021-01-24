@@ -17,6 +17,7 @@ virtualenv==20.0.30
 ### Find WHere Python Installed 
 which python3
 ### Create Project Django
+### Refer https://aws.amazon.com/getting-started/hands-on/deploy-python-application/
 django-admin startproject <Name> .
 ### Run Server to Access http:/ ip
 python manage.py runserver
